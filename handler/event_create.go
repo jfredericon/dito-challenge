@@ -10,6 +10,7 @@ import (
 )
 
 const (
+	// esURL     = "http://elasticsearch:9200/"
 	esURL     = "http://localhost:9200/"
 	indexName = "dito_chellenge"
 )

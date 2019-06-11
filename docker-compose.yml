@@ -12,19 +12,20 @@ services:
       - 9300
     networks:
       - app-network
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - '5000:5000'
-  #   expose:
-  #     - '5000'
-  #   networks:
-  #     - app-network
-  #   depends_on: 
-  #     - elasticsearch
-  #   links:
-  #     - elasticsearch
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '5000:5000'
+    expose:
+      - '5000'
+    networks:
+      - app-network
+    depends_on: 
+      - elasticsearch
+    links:
+      - elasticsearch
 networks:
   app-network:

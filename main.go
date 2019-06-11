@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"context"
 	"ditoChallenge/handler"
 	"log"
 	"net"
@@ -10,23 +9,13 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/olivere/elastic"
 )
 
 const (
+	// esURL     = "http://elasticsearch:9200/"
 	esURL     = "http://localhost:9200/"
 	indexName = "dito_chellenge"
 )
-
-func newEsClient(ctx context.Context) (*elastic.Client, error) {
-	client, err := elastic.NewClient()
-
-	if err != nil {
-		return nil, err
-	}
-
-	return client, nil
-}
 
 func newHTTPClient() *http.Client {
 	netTransport := &http.Transport{
