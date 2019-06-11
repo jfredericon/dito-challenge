@@ -12,7 +12,6 @@ import (
 )
 
 const (
-	// esURL     = "http://elasticsearch:9200/"
 	esURL     = "http://localhost:9200/"
 	indexName = "dito_chellenge"
 )
@@ -36,7 +35,7 @@ func newHTTPClient() *http.Client {
 func checkElasticInstance(netClient *http.Client) {
 
 	if _, err := netClient.Get(esURL); err != nil {
-		panic(err)
+		log.Println(err)
 	}
 	log.Println("checkElasticInstance OK")
 }
@@ -48,7 +47,7 @@ func createIndexIfNotExist(netClient *http.Client) {
 	response, err := netClient.Head(url)
 
 	if err != nil {
-		panic(err)
+		log.Println(err)
 	}
 
 	if response.StatusCode == http.StatusNotFound {
@@ -102,7 +101,7 @@ func createIndexIfNotExist(netClient *http.Client) {
 		request, err := http.NewRequest("PUT", url, bytes.NewBuffer(indexJSON))
 
 		if err != nil {
-			panic(err)
+			log.Println(err)
 		}
 
 		request.Header.Set("Content-Type", "application/json")
@@ -110,7 +109,7 @@ func createIndexIfNotExist(netClient *http.Client) {
 		response, err := netClient.Do(request)
 
 		if err != nil {
-			panic(err)
+			log.Println(err)
 		}
 
 		log.Println(response)

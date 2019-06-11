@@ -1,2 +1,2 @@
-dev:
+all:
 	go run main.go
