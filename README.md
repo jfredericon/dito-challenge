@@ -31,7 +31,7 @@ Objeto do request:
 ## Requisitos: 
 * Sitema operacional baseado em Unix
 * Git - https://git-scm.com/downloads
-* Docker - https://docs.docker.com/docker-for-windows/install/
+* Docker - https://www.docker.com/products/docker-desktop
 * Docker Compose - https://docs.docker.com/compose/install/
 
 ## Passos a passo: 
